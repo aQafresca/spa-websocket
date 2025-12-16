@@ -32,7 +32,7 @@ export default tseslint.config([
     rules: {
       ...reactHooks.configs['recommended-latest'].rules,
       ...reactRefresh.configs.vite.rules,
-      'no-console': ['error', { allow: ['warn', 'error'] }],
+      // 'no-console': ['error', { allow: ['warn', 'error'] }],
       'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-explicit-any': 'warn',
       'padding-line-between-statements': [

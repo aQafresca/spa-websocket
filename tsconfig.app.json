@@ -25,12 +25,6 @@
 
     "paths": {
       "@/*": ["./src/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@store/*": ["./src/store/*"],
-      "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@lib/*": ["./src/lib/*"],
-      "@wrappers/*": ["./src/wrappers/*"]
     }
   },
   "include": ["src"]
