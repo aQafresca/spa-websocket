@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 
-import type { IProductCard } from '../model';
+import type { IProducts } from '@/entities/products/model';
+
 import { fetchProductsById } from './fetchProductByIdService.ts';
 
 export const useProductsById = (id: string) => {
-  return useQuery<IProductCard>({
+  return useQuery<IProducts>({
     queryKey: ['productId', id],
     queryFn: () => fetchProductsById(id),
     enabled: !!id,
