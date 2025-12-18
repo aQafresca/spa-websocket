@@ -1,4 +1,4 @@
-export interface IProductCard {
+export interface IProducts {
   id: number;
   title: string;
   description: string;
@@ -13,8 +13,25 @@ export interface IProductCard {
 }
 
 export interface IApiResponse {
-  products: IProductCard[];
+  products: IProducts[];
   total: number;
   skip: number;
   limit: number;
+}
+
+export interface IFetchProductsParams {
+  limit: number;
+  skip: number;
+  query?: string;
+}
+
+export interface IProductListViewState {
+  products: IProducts[];
+  isLoading: boolean;
+  isFetching: boolean;
+  isError: boolean;
+  currentPage: number;
+  totalPages: number;
+  handlePageChange: (_page: number) => void;
+  handleSearch: (_query: string) => void;
 }

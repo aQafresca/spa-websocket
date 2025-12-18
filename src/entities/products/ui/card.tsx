@@ -1,6 +1,6 @@
-import type { IProductCard } from '@/entities/products/model';
+import type { IProducts } from '@/entities/products/model';
 
-export const ProductCard = (params: IProductCard) => {
+export const ProductCard = (params: IProducts) => {
   return (
     <div>
       <img src={params.images[0]} alt={params.title} width={200} height={200} />
