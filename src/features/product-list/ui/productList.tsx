@@ -1,9 +1,9 @@
-import type { IProductCard } from '@/entities/products/model';
+import type { IProducts } from '@/entities/products/model';
 import { ProductCard } from '@/entities/products/ui/card.tsx';
 import { Pagination } from '@/shared/components/pagination';
 
 interface IProductList {
-  products: IProductCard[];
+  products: IProducts[];
   currentPage: number;
   totalPages: number;
   onPageChange: (_page: number) => void;
