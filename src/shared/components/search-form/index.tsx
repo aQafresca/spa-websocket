@@ -4,20 +4,20 @@ import { ButtonElement } from '@/shared/components/button';
 import { InputFieldElement } from '@/shared/components/fields/text-input';
 import { ButtonText } from '@/shared/constants';
 
-interface IProductSearchForm {
+interface ISearchFormProps {
   label: string;
   placeholder: string;
   initialValue?: string;
-  onSearch: (_value: string) => void;
+  onSubmit: (value: string) => void;
 }
 
-export const ProductSearchForm = ({ label, placeholder, initialValue = '', onSearch }: IProductSearchForm) => {
+export const SearchForm = ({ label, placeholder, initialValue = '', onSubmit }: ISearchFormProps) => {
   const form = useForm({
     defaultValues: {
       search: initialValue,
     },
     onSubmit: ({ value }) => {
-      onSearch(value.search);
+      onSubmit(value.search);
     },
   });
 
