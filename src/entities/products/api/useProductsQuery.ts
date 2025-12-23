@@ -18,6 +18,5 @@ export const useProductsQuery = ({ page, limit, query }: IUseProductsProps) => {
     queryFn: () => fetchProducts({ limit, skip, query }),
     placeholderData: keepPreviousData,
     staleTime: 1000 * 60 * 2,
-    gcTime: 1000 * 60 * 2,
   });
 };
