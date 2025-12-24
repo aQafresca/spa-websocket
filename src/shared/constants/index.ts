@@ -14,3 +14,11 @@ export const ButtonText = {
   SEARCH: 'Search',
   RETRY: 'Retry',
 };
+
+export const CharCardLabel = {
+  status: 'Status:',
+  species: 'Species:',
+  gender: 'Gender:',
+  origin: 'Origin:',
+  location: 'Location:',
+};

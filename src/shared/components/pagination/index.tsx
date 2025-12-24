@@ -4,7 +4,7 @@ import { getPaginationRange } from '@/shared/lib/utils/getPaginationRange.ts';
 interface IPagination {
   currentPage: number;
   total: number;
-  onChangePage: (_page: number) => void;
+  onChangePage: (page: number) => void;
 }
 
 export const Pagination = ({ currentPage, total, onChangePage }: IPagination) => {

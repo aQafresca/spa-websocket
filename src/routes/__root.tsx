@@ -7,7 +7,7 @@ import Header from '@/shared/components/header';
 
 export const Route = createRootRoute({
   component: RootComponent,
-  errorComponent: NotFoundPage,
+  notFoundComponent: NotFoundPage,
 });
 
 function RootComponent() {

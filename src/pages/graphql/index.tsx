@@ -1,12 +1,12 @@
-import type { IProducts } from '@/entities/products/model';
-import { ProductCard } from '@/entities/products/ui/card.tsx';
-import { useProductListRest } from '@/features/product-list/model/useProductListRest.ts';
-import { Route } from '@/routes';
+import type { TCharacterCard } from '@/entities/characters/module/types.ts';
+import { CharacterCard } from '@/entities/characters/ui/card.tsx';
+import { useCharacterListGql } from '@/features/characters-list/model/useCharacterListGql.ts';
+import { Route } from '@/routes/graphql.tsx';
 import { ListContainer } from '@/shared/components/list-container/listContainer.tsx';
 import { SearchForm } from '@/shared/components/search-form';
 import { useListParams } from '@/shared/hooks/useListParams.ts';
 
-const HomePage = () => {
+export const GraphqlPage = () => {
   const { page, search } = Route.useSearch();
   const navigate = Route.useNavigate();
 
@@ -15,27 +15,26 @@ const HomePage = () => {
     onChange: (params) => navigate({ search: () => params }),
   });
 
-  const state = useProductListRest({ page: listParams.page, search: listParams.search });
+  const state = useCharacterListGql({ page: listParams.page, search: listParams.search });
 
   return (
     <div>
+      <div>Graph123</div>
       <SearchForm
-        label={'products'}
+        label={'characters'}
         initialValue={listParams.search}
-        placeholder={'enter product'}
+        placeholder={'enter character name'}
         onSubmit={listParams.handleSearch}
       />
-      <ListContainer<IProducts>
+      <ListContainer<TCharacterCard>
         state={{
           ...state,
           handlePageChange: listParams.handlePageChange,
           handleSearch: listParams.handleSearch,
         }}
-        emptyMessage={`Product ${search} not found.`}
-        renderItem={(product) => <ProductCard key={product.id} {...product} />}
+        emptyMessage={`${search} is not exists`}
+        renderItem={(char) => <CharacterCard key={char.id} {...char} />}
       />
     </div>
   );
 };
-
-export default HomePage;

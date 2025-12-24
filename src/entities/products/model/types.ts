@@ -24,14 +24,3 @@ export interface IFetchProductsParams {
   skip: number;
   query?: string;
 }
-
-export interface IProductListViewState {
-  products: IProducts[];
-  isLoading: boolean;
-  isFetching: boolean;
-  isError: boolean;
-  currentPage: number;
-  totalPages: number;
-  handlePageChange: (_page: number) => void;
-  handleSearch: (_query: string) => void;
-}
