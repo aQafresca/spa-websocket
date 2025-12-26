@@ -1,14 +1,14 @@
 import type { IProducts } from '@/entities/products/model';
-import { ProductCard } from '@/entities/products/ui/card.tsx';
+import { ProductCard } from '@/entities/products/ui';
 import { useProductListRest } from '@/features/product-list/model/useProductListRest.ts';
-import { Route } from '@/routes';
 import { ListContainer } from '@/shared/components/list-container/listContainer.tsx';
 import { SearchForm } from '@/shared/components/search-form';
-import { useListParams } from '@/shared/hooks/useListParams.ts';
+import { useListParams } from '@/shared/hooks';
+import { ProductRoute } from '@/shared/routes';
 
 const HomePage = () => {
-  const { page, search } = Route.useSearch();
-  const navigate = Route.useNavigate();
+  const { page, search } = ProductRoute.useSearch();
+  const navigate = ProductRoute.useNavigate();
 
   const listParams = useListParams({
     params: { page, search: search },
