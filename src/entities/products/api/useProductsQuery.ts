@@ -2,7 +2,7 @@ import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
 import type { IApiResponse } from '@/entities/products/model';
 
-import { fetchProducts } from './fetchProductsService.ts';
+import { productsService } from './products.service.ts';
 
 interface IUseProductsProps {
   limit: number;
@@ -14,8 +14,8 @@ export const useProductsQuery = ({ page, limit, query }: IUseProductsProps) => {
   const skip = (page - 1) * limit;
 
   return useQuery<IApiResponse>({
-    queryKey: ['product', { page, limit, query }],
-    queryFn: () => fetchProducts({ limit, skip, query }),
+    queryKey: ['products', { page, limit, query }],
+    queryFn: () => productsService.getProducts({ limit, skip, query }),
     placeholderData: keepPreviousData,
     staleTime: 1000 * 60 * 2,
   });
