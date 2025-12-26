@@ -1,22 +1,28 @@
-export interface ICharacterFull {
+export interface ICharacterCard {
   id: number;
   name: string;
   status: string;
   species: string;
   gender: string;
   image: string;
-  origin: {
-    name: string;
-    url: string;
-  };
-  location: {
-    name: string;
-    url: string;
-  };
 }
 
-export interface ICharacterApiResponse {
-  character: ICharacterFull;
+export interface ICharacterFull {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  image: string;
+  origin: {
+    id: number;
+    name: string;
+  };
+  location: {
+    id: number;
+    name: string;
+  };
 }
 
 export interface Info {
@@ -28,7 +34,5 @@ export interface Info {
 
 export interface ICharactersApiResponse {
   info: Info;
-  results: ICharacterFull[];
+  results: ICharacterCard[];
 }
-
-export type TCharacterCard = Pick<ICharacterFull, 'id' | 'name' | 'status' | 'species' | 'gender' | 'image'>;
