@@ -1,15 +1,24 @@
-import { GET_CHARACTERS } from '@/entities/characters/api/charactersQueries.ts';
-import type { ICharactersApiResponse } from '@/entities/characters/module/types.ts';
-import { gqlClient } from '@/shared/api/grapgqlClient.ts';
+import { GET_CHARACTER_BY_ID, GET_CHARACTERS } from '@/entities/characters/api';
+import type { ICharacterFull, ICharactersApiResponse } from '@/entities/characters/module';
+import { gqlClient } from '@/shared/api';
 
-export interface IGetCharactersResponse {
+interface IGetCharactersQueryResponse {
   characters: ICharactersApiResponse;
+}
+interface IGetCharacterQueryResponse {
+  character: ICharacterFull;
 }
 
 export const charactersService = {
   getCharacters: async (page: number, name = '') => {
-    const response = await gqlClient.request<IGetCharactersResponse>(GET_CHARACTERS, { page, name });
+    const response = await gqlClient.request<IGetCharactersQueryResponse>(GET_CHARACTERS, { page, name });
 
     return response.characters;
+  },
+
+  getCharacterById: async (id: string) => {
+    const response = await gqlClient.request<IGetCharacterQueryResponse>(GET_CHARACTER_BY_ID, { id });
+
+    return response.character;
   },
 };
