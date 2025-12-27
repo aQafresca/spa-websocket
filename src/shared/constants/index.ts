@@ -13,6 +13,7 @@ export const ButtonText = {
   SUBMIT: 'Submit',
   SEARCH: 'Search',
   RETRY: 'Retry',
+  CLOSE: 'Close',
 };
 
 export const CharCardLabel = {
