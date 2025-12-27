@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header>
       <Link to={'/'}>Home</Link>
-      <Link to={'/graphql'}>GraphQL</Link>
+      <Link to={'/character'}>GraphQL</Link>
       <Link to={'/chat'}>Chat</Link>
       <Link to={'/login'}>Login</Link>
     </header>

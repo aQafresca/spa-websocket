@@ -4,13 +4,9 @@ import HomePage from '@/pages/home';
 import { defaultSearchValues, searchProductsSchema } from '@/pages/home/search.shema.ts';
 
 export const Route = createFileRoute('/')({
-  component: RouteComponent,
+  component: HomePage,
   validateSearch: searchProductsSchema,
   search: {
     middlewares: [stripSearchParams(defaultSearchValues)],
   },
 });
-
-function RouteComponent() {
-  return <HomePage />;
-}

@@ -1,14 +1,14 @@
-import type { TCharacterCard } from '@/entities/characters/module/types.ts';
-import { CharacterCard } from '@/entities/characters/ui/card.tsx';
+import type { ICharacterCard } from '@/entities/characters/module';
+import { CharacterCard } from '@/entities/characters/ui';
 import { useCharacterListGql } from '@/features/characters-list/model/useCharacterListGql.ts';
-import { Route } from '@/routes/graphql.tsx';
 import { ListContainer } from '@/shared/components/list-container/listContainer.tsx';
 import { SearchForm } from '@/shared/components/search-form';
-import { useListParams } from '@/shared/hooks/useListParams.ts';
+import { useListParams } from '@/shared/hooks';
+import { CharacterRoute } from '@/shared/routes';
 
 export const GraphqlPage = () => {
-  const { page, search } = Route.useSearch();
-  const navigate = Route.useNavigate();
+  const { page, search } = CharacterRoute.useSearch();
+  const navigate = CharacterRoute.useNavigate();
 
   const listParams = useListParams({
     params: { page, search: search },
@@ -26,7 +26,7 @@ export const GraphqlPage = () => {
         placeholder={'enter character name'}
         onSubmit={listParams.handleSearch}
       />
-      <ListContainer<TCharacterCard>
+      <ListContainer<ICharacterCard>
         state={{
           ...state,
           handlePageChange: listParams.handlePageChange,
