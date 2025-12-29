@@ -7,7 +7,6 @@ export const productQueries = {
     queryOptions({
       queryKey: ['product', id],
       queryFn: () => productsService.getProductById(id),
-      staleTime: 1000 * 60 * 2,
     }),
 };
 
