@@ -15,8 +15,7 @@ export const useProductsQuery = ({ page, limit, query }: IUseProductsProps) => {
 
   return useQuery<IApiResponse>({
     queryKey: ['products', { page, limit, query }],
-    queryFn: () => productsService.getProducts({ limit, skip, query }),
+    queryFn: ({ signal }) => productsService.getProducts({ limit, skip, query, signal }),
     placeholderData: keepPreviousData,
-    staleTime: 1000 * 60 * 2,
   });
 };
