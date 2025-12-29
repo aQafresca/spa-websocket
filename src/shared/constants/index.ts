@@ -4,6 +4,7 @@ export const LocalStorageKeys = {
 
 export const UrlEndpoints = {
   PRODUCTS: '/products',
+  AUTH: '/auth',
 };
 
 export const DOTS = '...';
@@ -22,4 +23,8 @@ export const CharCardLabel = {
   gender: 'Gender:',
   origin: 'Origin:',
   location: 'Location:',
+};
+
+export const REASON = {
+  AUTH_REQUIRED: 'auth_required',
 };

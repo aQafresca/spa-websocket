@@ -3,9 +3,9 @@ import { api } from '@/shared/api';
 import { UrlEndpoints } from '@/shared/constants';
 
 export const productsService = {
-  getProducts: async ({ limit, skip, query }: IFetchProductsParams) => {
+  getProducts: async ({ limit, skip, query, signal }: IFetchProductsParams) => {
     const baseUrl = query ? `${UrlEndpoints.PRODUCTS}/search` : `${UrlEndpoints.PRODUCTS}`;
-    const response = await api.get<IApiResponse>(baseUrl, { params: { limit, skip, q: query } });
+    const response = await api.get<IApiResponse>(baseUrl, { params: { limit, skip, q: query }, signal });
 
     return response.data;
   },

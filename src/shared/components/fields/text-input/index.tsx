@@ -20,23 +20,25 @@ export const InputFieldElement: React.FC<IFieldProps> = ({ label, placeholder, f
 
   return (
     <div>
-      <label htmlFor={field.name}>
-        {label}
+      <label htmlFor={field.name}>{label}</label>
+      <div>
         <input
+          id={field.name}
           name={field.name}
           onBlur={field.handleBlur}
           placeholder={placeholder}
           onChange={(e) => field.handleChange(e.target.value)}
           value={field.state.value ?? ''}
           type={isPassword && showPassword ? 'text' : type}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
         />
-        <p>{showError ? field.state.meta.errors[0] : ' '}</p>
+        <p>{showError ? field.state.meta.errors[0].message : ' '}</p>
         {isPassword && (
           <button type={'button'} onClick={togglePasswordVisibility}>
-            {showError ? <FaEyeSlash /> : <FaEye />}
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
           </button>
         )}
-      </label>
+      </div>
     </div>
   );
 };

@@ -9,6 +9,5 @@ export const useCharactersQuery = (page: number, search: string) => {
     queryKey: ['characters', page, search],
     queryFn: () => charactersService.getCharacters(page, search),
     placeholderData: keepPreviousData,
-    staleTime: 1000 * 60 * 2,
   });
 };
