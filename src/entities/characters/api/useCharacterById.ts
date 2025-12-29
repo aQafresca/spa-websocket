@@ -7,7 +7,6 @@ export const characterQueries = {
     queryOptions({
       queryKey: ['character', id],
       queryFn: () => charactersService.getCharacterById(id),
-      staleTime: 1000 * 60 * 2,
     }),
 };
 
