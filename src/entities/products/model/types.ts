@@ -23,4 +23,5 @@ export interface IFetchProductsParams {
   limit: number;
   skip: number;
   query?: string;
+  signal?: AbortSignal;
 }
