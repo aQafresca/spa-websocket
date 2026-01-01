@@ -23,6 +23,7 @@ export const SearchForm = ({ label, placeholder, initialValue = '', onSubmit }: 
 
   return (
     <form
+      className={'flex gap-3 w-full max-w-lg items-center'}
       onSubmit={(e) => {
         e.preventDefault();
         void form.handleSubmit();
@@ -32,7 +33,9 @@ export const SearchForm = ({ label, placeholder, initialValue = '', onSubmit }: 
         {(field) => <InputFieldElement field={field} label={label} placeholder={placeholder} type={'text'} />}
       </form.Field>
 
-      <ButtonElement type="submit">{ButtonText.SEARCH}</ButtonElement>
+      <ButtonElement size={'small'} variant={'outline'} type="submit">
+        {ButtonText.SEARCH}
+      </ButtonElement>
     </form>
   );
 };
