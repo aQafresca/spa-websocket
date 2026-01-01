@@ -18,7 +18,7 @@ const HomePage = () => {
   const state = useProductListRest({ page: listParams.page, search: listParams.search });
 
   return (
-    <div>
+    <div className={'flex flex-col gap-3 items-center justify-center w-full'}>
       <SearchForm
         label={'products'}
         initialValue={listParams.search}

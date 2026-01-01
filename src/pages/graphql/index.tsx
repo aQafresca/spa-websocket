@@ -18,8 +18,7 @@ export const GraphqlPage = () => {
   const state = useCharacterListGql({ page: listParams.page, search: listParams.search });
 
   return (
-    <div>
-      <div>Graph123</div>
+    <div className={'flex flex-col gap-3 items-center justify-center w-full'}>
       <SearchForm
         label={'characters'}
         initialValue={listParams.search}

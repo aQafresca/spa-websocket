@@ -18,16 +18,21 @@ export const ListContainer = <T,>({ state, renderItem, emptyMessage }: IListCont
   const hasNoResults = !isLoading && !isFetching && items.length === 0;
   const showEmptyList = hasNoResults || hasError;
   const showItems = !isLoading && !showEmptyList;
+  const showPagination = totalPages > 1 && !isLoading;
 
   if (isLoading) return <Loader />;
 
   return (
-    <>
+    <div className={'flex flex-col gap-6 justify-items-center items-center w-full'}>
       {isFetching && <Loader />}
       {showEmptyList && <EmptyList message={emptyMessage} />}
-      {showItems && items.map(renderItem)}
+      {showItems && (
+        <div className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full  justify-items-center'}>
+          {items.map(renderItem)}
+        </div>
+      )}
 
-      <Pagination currentPage={currentPage} total={totalPages} onChangePage={handlePageChange} />
-    </>
+      {showPagination && <Pagination currentPage={currentPage} total={totalPages} onChangePage={handlePageChange} />}
+    </div>
   );
 };

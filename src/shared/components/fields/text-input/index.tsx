@@ -19,10 +19,13 @@ export const InputFieldElement: React.FC<IFieldProps> = ({ label, placeholder, f
   };
 
   return (
-    <div>
-      <label htmlFor={field.name}>{label}</label>
-      <div>
+    <div className={'flex flex-col gap-1 w-full'}>
+      <label className={'flex min-h-6 px-2 text-primary items-end'} htmlFor={field.name}>
+        {label}
+      </label>
+      <div className={'relative flex flex-col gap-1 w-full'}>
         <input
+          className={'outline-0 w-full border border-amber-50 rounded-md px-3 py-2 focus:border-accent'}
           id={field.name}
           name={field.name}
           onBlur={field.handleBlur}
@@ -32,9 +35,9 @@ export const InputFieldElement: React.FC<IFieldProps> = ({ label, placeholder, f
           type={isPassword && showPassword ? 'text' : type}
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
         />
-        <p>{showError ? field.state.meta.errors[0].message : ' '}</p>
+        <p className={'min-h-6 text-error px-2'}>{showError ? field.state.meta.errors[0].message : ' '}</p>
         {isPassword && (
-          <button type={'button'} onClick={togglePasswordVisibility}>
+          <button className={'absolute right-3 top-3'} type={'button'} onClick={togglePasswordVisibility}>
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </button>
         )}

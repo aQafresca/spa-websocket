@@ -3,31 +3,32 @@ import type { ButtonHTMLAttributes, FC } from 'react';
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'x-small' | 'small' | 'medium' | 'large';
-  variant?: 'primary' | 'secondary' | 'danger';
+  variant?: 'contained' | 'outline' | 'accent';
 }
+
+const sizeClasses = {
+  'x-small': 'h-[25px] w-[25px] text-xs',
+  small: 'px-3 py-1.5 text-sm w-full max-w-[100px]',
+  medium: 'px-4 py-2 text-base w-full max-w-[200px]',
+  large: 'px-6 py-3 text-lg w-full max-w-[300px]',
+};
+
+const variantClasses = {
+  contained: 'bg-primary text-white hover:brightness-90 focus:ring-accent',
+  outline:
+    'bg-transparent text-white border hover:brightness-90 hover:border-accent hover:text-accent focus:ring-accent',
+  accent: 'bg-accent text-dark hover:brightness-90 focus:ring-red-500',
+};
 
 export const ButtonElement: FC<IProps> = ({
   size = 'medium',
-  variant = 'primary',
+  variant = 'contained',
   type = 'button',
   children,
   className,
   disabled,
   ...props
 }) => {
-  const sizeClasses = {
-    'x-small': 'px-2 py-1 text-xs',
-    small: 'px-3 py-1.5 text-sm',
-    medium: 'px-4 py-2 text-base',
-    large: 'px-6 py-3 text-lg',
-  };
-
-  const variantClasses = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-400',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
-  };
-
   return (
     <button
       type={type}

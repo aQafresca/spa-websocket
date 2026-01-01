@@ -11,10 +11,12 @@ interface IDetailLayout {
 
 export const DetailLayout = ({ title, children, onClose }: IDetailLayout) => {
   return (
-    <div>
-      <h3>{title}</h3>
+    <div className={'flex flex-grow flex-col items-center justify-center gap-4'}>
+      <h3 className={'border-b-2 border-gray-light text-center'}>{title}</h3>
       {children}
-      <ButtonElement onClick={onClose}>{ButtonText.CLOSE}</ButtonElement>
+      <ButtonElement size={'medium'} onClick={onClose}>
+        {ButtonText.CLOSE}
+      </ButtonElement>
     </div>
   );
 };

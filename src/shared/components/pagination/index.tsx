@@ -1,3 +1,4 @@
+import { ButtonElement } from '@/shared/components/button';
 import { DOTS } from '@/shared/constants';
 import { getPaginationRange } from '@/shared/lib/utils/getPaginationRange.ts';
 
@@ -16,34 +17,47 @@ export const Pagination = ({ currentPage, total, onChangePage }: IPagination) =>
   const isNextDisabled = currentPage >= totalPages;
 
   return (
-    <div aria-label="Pagination">
-      <button
+    <div className={'flex gap-3'} aria-label="Pagination">
+      <ButtonElement
+        size={'x-small'}
+        variant={'outline'}
         onClick={() => onChangePage(currentPage - 1)}
         disabled={isPrevDisabled}
         aria-label="Prev page"
         type="button"
       >
-        prev
-      </button>
-      <div>
+        {'<'}
+      </ButtonElement>
+      <div className={'flex gap-1'} aria-label="Pagination">
         {pages.map((page, index) =>
           page === DOTS ? (
-            <span key={`dots-${index}`}>{DOTS}</span>
+            <span className={'px-2 py-1 text-xm'} key={`dots-${index}`}>
+              {DOTS}
+            </span>
           ) : (
-            <button key={page} type="button" disabled={page === currentPage} onClick={() => onChangePage(Number(page))}>
+            <ButtonElement
+              variant={'outline'}
+              size={'x-small'}
+              key={page}
+              type="button"
+              disabled={page === currentPage}
+              onClick={() => onChangePage(Number(page))}
+            >
               {page}
-            </button>
+            </ButtonElement>
           ),
         )}
       </div>
-      <button
+      <ButtonElement
+        size={'x-small'}
+        variant={'outline'}
         onClick={() => onChangePage(currentPage + 1)}
         disabled={isNextDisabled}
         aria-label="Next page"
         type="button"
       >
-        next
-      </button>
+        {'>'}
+      </ButtonElement>
     </div>
   );
 };

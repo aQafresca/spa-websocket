@@ -6,8 +6,10 @@ const LoginPage = () => {
   const { reason } = LoginRoute.useSearch();
 
   return (
-    <div>
-      {reason === REASON.AUTH_REQUIRED && <div>Please sign in to access the CHAT page</div>}
+    <div className={'flex flex-grow flex-col items-center justify-center gap-6'}>
+      {reason === REASON.AUTH_REQUIRED && (
+        <div className={'mx-auto text-error'}>Please sign in to access the CHAT page</div>
+      )}
       <LoginForm />
     </div>
   );
