@@ -4,7 +4,7 @@ interface IEmptyListProps {
 
 export const EmptyList = ({ message }: IEmptyListProps) => {
   return (
-    <div>
+    <div className={'h-full'}>
       <p>{message}</p>
     </div>
   );
