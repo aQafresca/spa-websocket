@@ -1,31 +1,20 @@
 import type { ICharacterFull } from '@/entities/characters/module';
-import { CharCardLabel } from '@/shared/constants';
+import { buildFullDescription } from '@/shared/lib/utils/buildCharDescription.ts';
 
-export const CharacterDetailInfo = ({ image, name, species, status, gender, origin, location }: ICharacterFull) => {
+export const CharacterDetailInfo = (props: ICharacterFull) => {
+  const { image, name } = props;
+  const description = buildFullDescription(props);
+
   return (
-    <div>
-      <img src={image} alt={name} width={200} height={200} />
-      <ul>
-        <li>
-          <span>{CharCardLabel.species}</span>
-          <span>{species}</span>
-        </li>
-        <li>
-          <span>{CharCardLabel.status}</span>
-          <span>{status}</span>
-        </li>
-        <li>
-          <span>{CharCardLabel.gender}</span>
-          <span>{gender}</span>
-        </li>
-        <li>
-          <span>{CharCardLabel.origin}</span>
-          <span>{origin.name}</span>
-        </li>
-        <li>
-          <span>{CharCardLabel.location}</span>
-          <span>{location.name}</span>
-        </li>
+    <div className={'flex flex-col gap-6 items-center sm:flex-row sm:items-center'}>
+      <img src={image} alt={name} width={200} height={200} className="max-w-xs  rounded-md object-cover shadow" />
+      <ul className={'flex flex-col sm:gap-3'}>
+        {description.map((detail) => (
+          <li key={detail.label} className={'flex gap-3'}>
+            <span>{detail.label}</span>
+            <span>{detail.value}</span>
+          </li>
+        ))}
       </ul>
     </div>
   );
