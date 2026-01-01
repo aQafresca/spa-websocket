@@ -8,6 +8,7 @@ import { ToastProvider } from '@/app/providers/toastProvider.tsx';
 import { queryClient } from '@/app/queryClient.ts';
 
 import '@/shared/lib/zod';
+import './index.css';
 import { App } from './App.tsx';
 
 createRoot(document.getElementById('root')!).render(
