@@ -7,6 +7,11 @@ export const UrlEndpoints = {
   AUTH: '/auth',
 };
 
+export const NAV_LINKS = [
+  { to: '/character', label: 'Characters' },
+  { to: '/chat', label: 'Chat' },
+];
+
 export const DOTS = '...';
 export const LIMIT_PER_PAGE = 10;
 
@@ -17,12 +22,16 @@ export const ButtonText = {
   CLOSE: 'Close',
 };
 
-export const CharCardLabel = {
-  status: 'Status:',
-  species: 'Species:',
-  gender: 'Gender:',
-  origin: 'Origin:',
-  location: 'Location:',
+export const CHAR = {
+  STATUS: 'Status:',
+  SPECIES: 'Species:',
+  GENDER: 'Gender:',
+  ORIGIN: 'Origin:',
+  LOCATION: 'Location:',
+};
+
+export const ProductCardLabel = {
+  rating: 'Rating:',
 };
 
 export const REASON = {
