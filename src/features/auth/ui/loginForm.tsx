@@ -30,6 +30,7 @@ export const LoginForm = () => {
 
   return (
     <form
+      className={'flex flex-col items-center w-full h-full max-w-lg mx-auto'}
       onSubmit={(event) => {
         event.preventDefault();
         void form.handleSubmit();
@@ -51,7 +52,7 @@ export const LoginForm = () => {
       <form.Subscribe
         selector={(state) => [state.canSubmit, state.isSubmitting]}
         children={([canSubmit]) => (
-          <ButtonElement type={'submit'} disabled={!canSubmit}>
+          <ButtonElement className={'my-2 w-full'} type={'submit'} size={'medium'} disabled={!canSubmit}>
             {ButtonText.SUBMIT}
           </ButtonElement>
         )}
