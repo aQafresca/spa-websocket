@@ -27,7 +27,14 @@ export const ProductCard = ({ id, price, title, rating, discountPercentage, imag
           <span>{Math.round(discountPercentage)} %</span>
         </div>
       )}
-      <img src={images[0]} alt={title} loading="lazy" width={'300px'} height={'280px'} />
+      <img
+        src={images[0]}
+        alt={title}
+        loading="lazy"
+        width={300}
+        height={280}
+        className="w-[300px] h-[280px] object-cover"
+      />
       <ul className={'flex flex-col gap-3 p-3'}>
         <li>
           <h3 className={'text-center'}>{title}</h3>
