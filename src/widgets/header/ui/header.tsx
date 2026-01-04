@@ -17,7 +17,7 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <header className="w-full">
+    <header className="w-full min-h-[64px]">
       <div className={'container mx-auto p-5 flex h-16 justify-between items-center'}>
         <Link to={ProductRoute.to}>Home</Link>
         <nav className={'hidden md:flex'}>
