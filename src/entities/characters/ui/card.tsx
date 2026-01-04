@@ -17,7 +17,14 @@ export const CharacterCard = (props: ICharacterCard) => {
       params={{ characterId: String(id) }}
       preload={'intent'}
     >
-      <img src={image} alt={name} loading="lazy" width={'300px'} height={'280px'} />
+      <img
+        src={image}
+        alt={name}
+        loading="lazy"
+        width={300}
+        height={280}
+        className="w-[300px] h-[280px] object-cover"
+      />
 
       <ul className={'flex flex-col gap-2 p-3'}>
         <li>
