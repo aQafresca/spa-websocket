@@ -27,7 +27,11 @@ const HomePage = () => {
           handleSearch: listParams.handleSearch,
         }}
         emptyMessage={`Product ${search} not found.`}
-        renderItem={(product) => <ProductCard key={product.id} {...product} />}
+        renderItem={(product) => {
+          const index = state.items.indexOf(product);
+
+          return <ProductCard key={product.id} product={product} isPriority={index === 0} />;
+        }}
       />
     </div>
   );

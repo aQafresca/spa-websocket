@@ -36,3 +36,8 @@ export interface ICharactersApiResponse {
   info: Info;
   results: ICharacterCard[];
 }
+
+export interface ICharacterCardProps {
+  character: ICharacterCard;
+  isPriority?: boolean;
+}
