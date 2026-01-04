@@ -20,7 +20,6 @@ export const GraphqlPage = () => {
   return (
     <div className={'flex flex-col gap-3 items-center justify-center w-full'}>
       <SearchForm
-        label={'characters'}
         initialValue={listParams.search}
         placeholder={'enter character name'}
         onSubmit={listParams.handleSearch}

@@ -19,12 +19,7 @@ const HomePage = () => {
 
   return (
     <div className={'flex flex-col gap-3 items-center justify-center w-full'}>
-      <SearchForm
-        label={'products'}
-        initialValue={listParams.search}
-        placeholder={'enter product'}
-        onSubmit={listParams.handleSearch}
-      />
+      <SearchForm initialValue={listParams.search} placeholder={'enter product'} onSubmit={listParams.handleSearch} />
       <ListContainer<IProducts>
         state={{
           ...state,
