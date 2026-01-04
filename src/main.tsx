@@ -3,12 +3,13 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
+import { ChatProvider } from '@/app/providers/chatProvider.tsx';
 import { GlobalErrorBoundary } from '@/app/providers/errorBoundaryProvider.tsx';
 import { ToastProvider } from '@/app/providers/toastProvider.tsx';
 import { queryClient } from '@/app/queryClient.ts';
-
 import '@/shared/lib/zod';
 import './index.css';
+
 import { App } from './App.tsx';
 
 createRoot(document.getElementById('root')!).render(
@@ -16,7 +17,9 @@ createRoot(document.getElementById('root')!).render(
     <QueryClientProvider client={queryClient}>
       <GlobalErrorBoundary>
         <ToastProvider />
-        <App />
+        <ChatProvider>
+          <App />
+        </ChatProvider>
       </GlobalErrorBoundary>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

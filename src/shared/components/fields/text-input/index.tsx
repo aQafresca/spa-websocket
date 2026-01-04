@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 interface IFieldProps {
   field: AnyFieldApi;
-  label: string;
+  label?: string;
   placeholder: string;
   type: 'text' | 'password';
 }

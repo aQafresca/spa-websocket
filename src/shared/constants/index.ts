@@ -20,6 +20,7 @@ export const ButtonText = {
   SEARCH: 'Search',
   RETRY: 'Retry',
   CLOSE: 'Close',
+  SEND: 'Send',
 };
 
 export const CHAR = {
