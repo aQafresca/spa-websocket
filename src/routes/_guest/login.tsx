@@ -1,6 +1,5 @@
 import { createFileRoute, stripSearchParams } from '@tanstack/react-router';
 
-import LoginPage from '@/pages/login';
 import { defaultSearchValues, loginSearchSchema } from '@/pages/login/search.schema.ts';
 
 export const Route = createFileRoute('/_guest/login')({
@@ -8,5 +7,4 @@ export const Route = createFileRoute('/_guest/login')({
   search: {
     middlewares: [stripSearchParams(defaultSearchValues)],
   },
-  component: LoginPage,
 });

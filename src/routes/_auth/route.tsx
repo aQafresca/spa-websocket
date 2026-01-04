@@ -19,7 +19,7 @@ export const Route = createFileRoute('/_auth')({
     } catch {
       tokenStorage.clear();
       throw redirect({
-        to: '/login',
+        to: LoginRoute.to,
         search: { redirect: location.href },
       });
     }
