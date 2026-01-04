@@ -27,7 +27,12 @@ const Header = () => {
           <AuthButton isAuth={isAuth} logout={logout} />
         </div>
 
-        <button className="md:hidden text-3xl" aria-expanded={isMenuOpen} aria-label="Toggle menu" onClick={toggleMenu}>
+        <button
+          className="md:hidden text-3xl"
+          aria-expanded={isMenuOpen}
+          aria-label="Open burger menu"
+          onClick={toggleMenu}
+        >
           <HiMenu />
         </button>
       </div>
@@ -37,7 +42,7 @@ const Header = () => {
           <Link to={ProductRoute.to} onClick={toggleMenu}>
             Home
           </Link>
-          <button onClick={toggleMenu} className="text-3xl">
+          <button onClick={toggleMenu} className="text-3xl" aria-label="close burger menu">
             <HiX />
           </button>
         </div>
