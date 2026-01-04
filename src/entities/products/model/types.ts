@@ -25,3 +25,8 @@ export interface IFetchProductsParams {
   query?: string;
   signal?: AbortSignal;
 }
+
+export interface IProductCardProps {
+  product: IProducts;
+  isPriority?: boolean;
+}

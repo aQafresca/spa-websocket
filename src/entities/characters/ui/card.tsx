@@ -1,12 +1,12 @@
 import { Link } from '@tanstack/react-router';
 
-import { type ICharacterCard } from '@/entities/characters/module';
+import type { ICharacterCardProps } from '@/entities/characters/module';
 import { buildCardDescription } from '@/shared/lib/utils/buildCharDescription.ts';
 import { CharacterDetailRoute } from '@/shared/routes';
 
-export const CharacterCard = (props: ICharacterCard) => {
-  const { image, id, name } = props;
-  const descriptions = buildCardDescription(props);
+export const CharacterCard = ({ character, isPriority }: ICharacterCardProps) => {
+  const { image, id, name } = character;
+  const descriptions = buildCardDescription(character);
 
   return (
     <Link
@@ -17,7 +17,15 @@ export const CharacterCard = (props: ICharacterCard) => {
       params={{ characterId: String(id) }}
       preload={'intent'}
     >
-      <img src={image} alt={name} loading="lazy" width={'300px'} height={'280px'} />
+      <img
+        src={image}
+        alt={name}
+        width={300}
+        height={280}
+        fetchPriority={isPriority ? 'high' : 'auto'}
+        loading={isPriority ? 'eager' : 'lazy'}
+        className="w-[300px] h-[280px] object-cover"
+      />
 
       <ul className={'flex flex-col gap-2 p-3'}>
         <li>

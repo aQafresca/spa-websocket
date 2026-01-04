@@ -33,6 +33,7 @@ export const MobileMenu = ({ isOpen, onClose, children }: MobileMenuProps) => {
       <aside
         role="dialog"
         aria-modal="true"
+        aria-label={'burger menu'}
         className={`
           fixed top-0 right-0 h-full w-full xs:w-[85vw] sm:max-w-[400px] bg-dark shadow-xl
           transition-transform duration-300 ease-out

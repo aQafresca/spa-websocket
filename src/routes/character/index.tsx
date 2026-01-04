@@ -1,10 +1,10 @@
 import { createFileRoute, stripSearchParams } from '@tanstack/react-router';
 
-import { GraphqlPage } from '@/pages/graphql';
 import { searchCharactersSchema, defaultSearchValues } from '@/pages/graphql/search.schema.ts';
+import { Loader } from '@/shared/components/loader';
 
 export const Route = createFileRoute('/character/')({
-  component: GraphqlPage,
+  pendingComponent: Loader,
   validateSearch: searchCharactersSchema,
   search: {
     middlewares: [stripSearchParams(defaultSearchValues)],

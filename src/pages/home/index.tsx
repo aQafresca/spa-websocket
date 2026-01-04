@@ -19,12 +19,7 @@ const HomePage = () => {
 
   return (
     <div className={'flex flex-col gap-3 items-center justify-center w-full'}>
-      <SearchForm
-        label={'products'}
-        initialValue={listParams.search}
-        placeholder={'enter product'}
-        onSubmit={listParams.handleSearch}
-      />
+      <SearchForm initialValue={listParams.search} placeholder={'enter product'} onSubmit={listParams.handleSearch} />
       <ListContainer<IProducts>
         state={{
           ...state,
@@ -32,7 +27,11 @@ const HomePage = () => {
           handleSearch: listParams.handleSearch,
         }}
         emptyMessage={`Product ${search} not found.`}
-        renderItem={(product) => <ProductCard key={product.id} {...product} />}
+        renderItem={(product) => {
+          const index = state.items.indexOf(product);
+
+          return <ProductCard key={product.id} product={product} isPriority={index === 0} />;
+        }}
       />
     </div>
   );

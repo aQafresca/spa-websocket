@@ -17,7 +17,7 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <header className="w-full">
+    <header className="w-full min-h-[64px]">
       <div className={'container mx-auto p-5 flex h-16 justify-between items-center'}>
         <Link to={ProductRoute.to}>Home</Link>
         <nav className={'hidden md:flex'}>
@@ -27,7 +27,12 @@ const Header = () => {
           <AuthButton isAuth={isAuth} logout={logout} />
         </div>
 
-        <button className="md:hidden text-3xl" aria-expanded={isMenuOpen} aria-label="Toggle menu" onClick={toggleMenu}>
+        <button
+          className="md:hidden text-3xl"
+          aria-expanded={isMenuOpen}
+          aria-label="Open burger menu"
+          onClick={toggleMenu}
+        >
           <HiMenu />
         </button>
       </div>
@@ -37,7 +42,7 @@ const Header = () => {
           <Link to={ProductRoute.to} onClick={toggleMenu}>
             Home
           </Link>
-          <button onClick={toggleMenu} className="text-3xl">
+          <button onClick={toggleMenu} className="text-3xl" aria-label="close burger menu">
             <HiX />
           </button>
         </div>

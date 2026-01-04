@@ -20,7 +20,6 @@ export const GraphqlPage = () => {
   return (
     <div className={'flex flex-col gap-3 items-center justify-center w-full'}>
       <SearchForm
-        label={'characters'}
         initialValue={listParams.search}
         placeholder={'enter character name'}
         onSubmit={listParams.handleSearch}
@@ -32,7 +31,11 @@ export const GraphqlPage = () => {
           handleSearch: listParams.handleSearch,
         }}
         emptyMessage={`${search} is not exists`}
-        renderItem={(char) => <CharacterCard key={char.id} {...char} />}
+        renderItem={(char) => {
+          const index = state.items.indexOf(char);
+
+          return <CharacterCard key={char.id} character={char} isPriority={index === 0} />;
+        }}
       />
     </div>
   );
