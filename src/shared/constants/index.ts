@@ -21,6 +21,7 @@ export const ButtonText = {
   RETRY: 'Retry',
   CLOSE: 'Close',
   SEND: 'Send',
+  BACK: 'Back',
 };
 
 export const CHAR = {
