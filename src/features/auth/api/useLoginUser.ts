@@ -12,9 +12,9 @@ export const useLoginUser = () => {
   return useMutation({
     mutationKey: ['auth-login'],
     mutationFn: (credentials: IAuthRequest) => authService.login(credentials),
-    onSuccess: async (data) => {
+    onSuccess: (data) => {
       tokenStorage.set(data.accessToken);
-      await queryClient.ensureQueryData(meQueries.details());
+      void queryClient.invalidateQueries(meQueries.details());
     },
   });
 };
